@@ -1,5 +1,6 @@
 class WorksController < ApplicationController
   def index
-    @works = Work.page(params[:page])
+    @q = Work.ransack(params[:q])
+    @works = @q.result(distinct: true).order(created_at: :desc).page(params[:page])
   end
 end

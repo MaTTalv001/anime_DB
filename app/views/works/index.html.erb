@@ -1,8 +1,9 @@
 <div class="row m-3">
   <div class="col-12">
 
+<%= render 'search_form', q: @q, url: works_path %>
 
-  <div class="row">
+<div class="row">
     <%= render partial: 'work', collection: @works %>
   </div>
 

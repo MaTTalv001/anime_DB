@@ -1,0 +1,10 @@
+<%= search_form_for q, url: url do |f| %>
+<div class="input-group mb-3">
+  <%= f.search_field :title_cont, class: 'form-control', placeholder:"タイトル検索" %>
+  <%= f.select :year_eq, (2000..Date.today.year+1).to_a.map { |year| [year.to_s, year] }, { include_blank: '年を選択' }, { class: 'form-control' } %>
+  <%= f.select :season_eq, options_for_select([['春 (Spring)', 'spring'], ['夏 (Summer)', 'summer'], ['秋 (Autumn)', 'autumn'], ['冬 (Winter)', 'winter']], params[:q] && params[:q][:season_eq]), { include_blank: '季節を選択' }, { class: 'form-control' } %>
+  <div class="input-group-append">
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+</div>
+<% end %>
