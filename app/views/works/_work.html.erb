@@ -10,13 +10,15 @@
   <div class="card-body">
     <p class="card-text">
       <%= work.year %>
+      <%= work.season%>
     </p>
   </div>
   
-  <div class="card-body">
-    <p class="card-text">
-      <%= work.official_site_url %>
-    </p>
+  <div class="card-body text-end">
+    <%= link_to '公式サイト', work.official_site_url, target: '_blank' %>
+    <%= link_to work.twitter_url, class: 'btn btn-dark text-end', target: '_blank' do %>
+      <i class="bi bi-twitter"></i>
+    <% end %>
   </div>
 
 </div>

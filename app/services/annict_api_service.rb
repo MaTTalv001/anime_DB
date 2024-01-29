@@ -37,10 +37,12 @@ class AnnictApiService
       # Work モデルのレコードを検索し、存在しない場合は初期化
       work_record = Work.find_or_initialize_by(annict_id: work["id"])
       # Twitterアカウント画像はprofile_imageにアクセスできないのでheader_logoに置換
-      twitter_data = work.dig("twitter", "mini_avatar_url")
-      if twitter_data
-        header_photo_url = twitter_data.sub('profile_image', 'header_photo')
-      end
+      #twitter_data = work.dig("twitter", "mini_avatar_url")
+      #if twitter_data
+        #header_photo_url = twitter_data.sub('profile_image', 'header_photo')
+      #end
+      header_photo_url = "https://twitter.com/#{work['twitter_username']}/header_photo"
+
       # レコードの属性を更新
       work_record.update(
         title: work["title"],
