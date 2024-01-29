@@ -1,0 +1,30 @@
+<header>
+  <nav class="navbar navbar-expand-lg navigation bg-dark" data-bs-theme="dark">
+    <%= link_to root_path, class: 'navbar-brand ' do %>
+      <%= image_tag 'logo.png' , width:50 %>
+        <%end %>
+          <div class="navbar-text">MaTTanime</div>
+
+          <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto main-nav align-items-center">
+                    <li class="nav-item dropdown dropdown-slide">
+                      <%= link_to "メニュー", "#" , class: 'nav-link dropdown-toggle' , data:
+                        {bs_toggle: 'dropdown' }, aria: { haspopup: 'true' , expanded: 'false' },
+                        id: 'header-board-menu' %>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <%= link_to 'アニメ検索' ,"#", class: 'dropdown-item' %>
+                            <%= link_to '機能2' , "#", class: 'dropdown-item' %>
+                              <%= link_to '機能3' , "#", class: 'dropdown-item' , data: { turbo_method: :delete
+                                } %>
+                        </div>
+                    </li>
+                    </li>
+            </ul>
+          </div>
+  </nav>
+</header>

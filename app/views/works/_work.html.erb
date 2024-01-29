@@ -1,0 +1,23 @@
+<div class="card mt-3 mx-3 p-0" style="width: 18rem;">
+	<div class="card-title text-center card-header">
+   <h5 class="text-truncate"><%= work.title %></h5>
+  </div>
+  
+  <div class="card-img-top img-thumbnail img-fluid">
+    <%= image_tag work.image_url, class: 'img-fluid'%>
+  </div>
+	
+  <div class="card-body">
+    <p class="card-text">
+      <%= work.year %>
+    </p>
+  </div>
+  
+  <div class="card-body">
+    <p class="card-text">
+      <%= work.official_site_url %>
+    </p>
+  </div>
+
+</div>
+
