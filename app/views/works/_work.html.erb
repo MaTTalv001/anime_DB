@@ -1,10 +1,10 @@
 <div class="card mt-3 mx-3 p-0" style="width: 18rem;">
 	<div class="card-title text-center card-header">
-   <h5 class="text-truncate"><%= work.title %></h5>
+   <h5 class="text-truncate"><b><%= work.title %></b></hb>
   </div>
   
-  <div class="card-img-top img-thumbnail img-fluid">
-    <%= image_tag work.image_url, class: 'img-fluid'%>
+  <div class="card-img-top img-thumbnail img-fluid ">
+    <%= image_tag work.image_url, class: 'img-fluid card-img-custom', alt:"image", onerror: "this.onerror=null;this.src='#{asset_path('alt_image.png')}';"%>
   </div>
 	
   <div class="card-body">
@@ -16,8 +16,8 @@
   
   <div class="card-body text-end">
     <%= link_to '公式サイト', work.official_site_url, target: '_blank' %>
-    <%= link_to work.twitter_url, class: 'btn btn-dark text-end', target: '_blank' do %>
-      <i class="bi bi-twitter"></i>
+    <%= link_to work.twitter_url, class: 'btn btn-dark text-end m-1', target: '_blank' do %>
+      <i class="bi bi-twitter-x"></i>
     <% end %>
   </div>
 

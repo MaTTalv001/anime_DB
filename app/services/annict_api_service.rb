@@ -5,14 +5,14 @@ class AnnictApiService
   end
 
   def import_anime_data
-    start_year = 2024
+    start_year = 2023
     end_year = Date.today.year
     seasons = ["spring", "summer", "autumn", "winter"]
     
     (start_year..end_year).each do |year|
       seasons.each do |season|
-        puts year
-        puts season
+        #puts year
+        #puts season
         response = Faraday.get("#{@base_url}", {
           fields: "id,title,title_kana,season_name_text,official_site_url,twitter_username,images",
           filter_season: "#{year}-#{season}",
@@ -21,7 +21,7 @@ class AnnictApiService
           access_token: @access_token
         })
         data = JSON.parse(response.body)
-        puts data
+        #puts data
         next unless data["works"].is_a?(Array)
         
         create_work_records(data["works"])
@@ -37,11 +37,12 @@ class AnnictApiService
       # Work モデルのレコードを検索し、存在しない場合は初期化
       work_record = Work.find_or_initialize_by(annict_id: work["id"])
       # Twitterアカウント画像はprofile_imageにアクセスできないのでheader_logoに置換
-      #twitter_data = work.dig("twitter", "mini_avatar_url")
-      #if twitter_data
-        #header_photo_url = twitter_data.sub('profile_image', 'header_photo')
-      #end
-      header_photo_url = "https://twitter.com/#{work['twitter_username']}/header_photo"
+      twitter_data = work.dig("twitter", "mini_avatar_url")
+      if twitter_data
+        header_photo_url = twitter_data.sub('profile_image', 'header_photo')
+      end
+      #header_photo_url = "https://twitter.com/#{work['twitter_username']}/header_photo?size=mini"
+      #puts header_photo_url
 
       # レコードの属性を更新
       work_record.update(
