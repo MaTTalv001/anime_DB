@@ -4,8 +4,8 @@ class AnnictApiService
     @access_token = ENV["ANNICT_ACCESS_TOKEN"]
   end
 
-  def import_anime_data
-    start_year = 2023
+  def import_anime_data(start_y)
+    start_year = start_y
     end_year = Date.today.year
     seasons = ["spring", "summer", "autumn", "winter"]
     

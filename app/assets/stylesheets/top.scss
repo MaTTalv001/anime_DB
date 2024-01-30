@@ -31,3 +31,9 @@
   object-fit: cover;
   /* 画像の比率を保ちつつ、領域に合わせてカバーする */
 }
+.bg-secondary {
+  min-height: 100vh;
+  /* ビューポートの高さに合わせる */
+  background-color: #ccc;
+  /* 灰色の背景色、必要に応じて色を調整してください */
+}
