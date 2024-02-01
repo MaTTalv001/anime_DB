@@ -1,0 +1,29 @@
+<div class="card mt-3 mx-3 p-0" style="width: 16rem;">
+	<div class="card-title text-center card-header">
+   <h5 class="text-truncate"><b><%= actor.name %></b></h5>
+  </div>
+	
+  <div class="card-body">
+    <p class="card-text">
+      <%= actor.birthday %>
+    </p>
+  </div>
+  <div class="m-3">
+    <% actor.works.order(id: :desc).limit(10).each do |work| %>
+    <div class = "badge text-bg-primary text-truncate" style="max-width: 150px;">
+    <%= work.title %>
+    </div>
+    <%end%>
+  </div>
+  <div class="card-body text-end">
+    <% if actor.official_site_url.present? %>
+      <%= link_to '公式サイト', actor.official_site_url, target: '_blank' %>
+    <% end %>
+    
+    <% if actor.twitter_url.present? %>
+      <%= link_to actor.twitter_url, class: 'btn btn-dark text-end m-1', target: '_blank' do %>
+      <i class="bi bi-twitter-x"></i>
+    <% end %>
+     <% end %>
+  </div>
+</div>

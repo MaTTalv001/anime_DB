@@ -1,0 +1,14 @@
+<div class="row m-3">
+  <div class="col-12">
+
+<%= render 'search_form', q: @q, url: actors_path %>
+
+<div class="row">
+    <%= render partial: 'actor', collection: @actors %>
+  </div>
+
+</div>
+
+<div class="m-3">
+<%= paginate @actors %>
+</div>

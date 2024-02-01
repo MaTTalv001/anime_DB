@@ -1,6 +1,6 @@
 FROM --platform=linux/amd64 ruby:3.2.2
 
-RUN apt-get update -qq && apt-get install -y build-essential default-mysql-client libmysqlclient-dev
+RUN apt-get update -qq && apt-get install -y build-essential default-mysql-client libmariadb-dev
 
 ENV app_path /rails_app
 RUN mkdir ${app_path}
