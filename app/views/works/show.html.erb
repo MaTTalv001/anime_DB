@@ -1,0 +1,64 @@
+<div class="row m-3">
+  <div class="card mt-3 mx-3 p-0" style="width: 18rem;">
+	  <div class="card-title text-center card-header">
+      <h5><b><%= @work.title %></b></hb>
+    </div>
+  
+    <div class="card-img-top img-thumbnail img-fluid">
+      <%= image_tag @work.image_url, class: 'img-fluid card-img-custom', alt:"image", onerror: "this.onerror=null;this.src='#{asset_path('alt_image.png')}';"%>
+    </div>
+	
+    <div class="card-body">
+      <p class="card-text">
+        <%= @work.year %>
+        <%= @work.season%>
+      </p>
+    </div>
+    <div class="m-3">
+      <% @work.casts.order(sort_number: :asc).each do |cast| %>
+      <% actor = cast.actor %>
+      <div class = "badge text-bg-primary">
+        <%= actor.name%>
+      </div>
+      <%end%>
+    </div>
+    <div class="card-body text-end">
+      <%= link_to '公式サイト', @work.official_site_url, target: '_blank' %>
+      <%= link_to @work.twitter_url, class: 'btn btn-dark text-end m-1', target: '_blank' do %>
+      <i class="bi bi-twitter-x"></i>
+      <% end %>
+    </div>
+  </div>
+  <div class="card mt-3 mx-3 p-0" style="width: 18rem;">
+    <div class="card-title text-center card-header">
+      <h5><b>推してる人</b></hb>  
+    </div>
+    <div class="card-body">
+    <div class = "badge text-bg-primary">50期MaTTa</div>
+    <div class = "badge text-bg-primary">50期MaTTa</div>
+    </div>
+  </div>
+
+  <div class="card mt-3 mx-3 p-0" style="width: 38rem;">
+    <div class="card-title text-center card-header">
+      <h5><b>みんなのコメント</b></hb>  
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class = "badge text-bg-primary">50期MaTTa</div>
+        <p class="card-text">泣ける</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class = "badge text-bg-primary">50期MaTTa</div>
+        <p class="card-text">笑える</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  </div>
+</div>

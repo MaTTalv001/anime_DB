@@ -3,9 +3,11 @@
    <h5 class="text-truncate"><b><%= work.title %></b></hb>
   </div>
   
-  <div class="card-img-top img-thumbnail img-fluid ">
+  <%= link_to work_path(work) do %>
+  <div class="card-img-top img-thumbnail img-fluid">
     <%= image_tag work.image_url, class: 'img-fluid card-img-custom', alt:"image", onerror: "this.onerror=null;this.src='#{asset_path('alt_image.png')}';"%>
   </div>
+  <% end %>
 	
   <div class="card-body">
     <p class="card-text">
