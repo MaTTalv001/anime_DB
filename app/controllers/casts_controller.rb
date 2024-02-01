@@ -1,5 +1,5 @@
 class CastsController < ApplicationController
   def index
-    @casts = Cast.all
+    @casts = Cast.all.page(params[:page])
   end
 end
